@@ -116,9 +116,8 @@ pub(crate) fn save_input_mode() {
         }
     });
 }
-/// The game's data folder. `HorizonActivity` writes the folder it picked (shared storage when
-/// "All files access" is granted, otherwise the private folder) into `home-path.txt` before the
-/// native code starts; the DocumentsProvider resolves the same folder in Java. Any problem with
+/// The game's data folder. `HorizonActivity` writes the folder it picked (the private folder)
+/// into `home-path.txt` before the native code starts; the DocumentsProvider resolves the same folder in Java. Any problem with
 /// the chosen folder falls back to the private one, as in the original build.
 pub(crate) fn game_home(app: &AndroidApp) -> Option<std::path::PathBuf> {
     let internal = app.internal_data_path()?;
